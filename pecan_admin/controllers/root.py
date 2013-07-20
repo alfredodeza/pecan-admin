@@ -20,8 +20,8 @@ class RootController(object):
             redirect('/')
         return dict(errors='wrong password or username')
 
-    @expose(template='signin.html')
-    def signin(self):
+    @expose(template='login.html')
+    def login(self):
         return dict()
 
     @expose()
