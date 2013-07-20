@@ -9,8 +9,8 @@ class RootController(object):
     def index(self):
         user = request.context.get('user')
         if not user:
-            redirect('/signin', internal=True)
-        return dict()
+            redirect('/login', internal=True)
+        return dict(errors='')
 
     @index.when(method='POST', template='index.html')
     def _post_login(self, *args, **kwargs):
@@ -18,11 +18,11 @@ class RootController(object):
         if user.validate_password(kwargs.get('password')):
             save_user_session(user)
             redirect('/')
-        return dict(errors='wrong password or username')
+        return dict(errors='wrong password or username', form_data=kwargs)
 
     @expose(template='login.html')
     def login(self):
-        return dict()
+        return dict(errors='')
 
     @expose()
     def logout(self):
