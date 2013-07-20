@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+      <title>${self.title()}</title>
+      ${self.style()}
+      ${self.javascript()}
+  </head>
+  <body>
+    ${self.body()}
+
+  </body>
+
+<%def name="title()">
+    Pecan Admin
+</%def>
+
+<%def name="style()">
+      <link rel="stylesheet" href="/p/css/bootstrap.css" />
+      <link rel="stylesheet" href="/p/css/main.css" />
+</%def>
+
+<%def name="javascript()"></%def>
+
+</html>
