@@ -2,3 +2,43 @@
 
 <%def name="title()">Pecan Admin :: login</%def>
 
+<div class="container">
+
+  <div class="page-header">
+      <h1>Admin</h1>
+  </div>
+
+  <div class="row">
+
+  <div class="span4 login">
+    <div class="row">
+      <form class="well form-search" action="/" method="post">
+        <h3>Sign in</h3>
+        % if errors:
+          <input id="username" name="username" class="input-large l-text" placeholder="Username" type="text" value="${form_data.get('username', '')}">
+        % else:
+          <input id="username" name="username" class="input-large l-text" placeholder="Username" type="text">
+        % endif
+        % if errors:
+        <div class="control-group error">
+          <input id="pasword" name="password" class="input-large l-text" placeholder="Password" type="password">
+        % else:
+        <div class="control-group">
+          <input id="pasword" name="password" class="input-large l-text" placeholder="Password" type="password">
+        % endif
+        </div>
+        % if errors:
+        <div class="control-group error">
+          <span class="help-inline">
+            ${errors}
+          </span>
+        </div>
+        % endif
+
+        <div class="placeholding-input">
+          <button type="submit" class="btn">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
