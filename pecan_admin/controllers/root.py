@@ -1,8 +1,6 @@
-from pecan import expose, request, redirect, secure
+from pecan import expose, request, redirect
 from pecan_admin import models
 from pecan_admin.lib.auth import save_user_session, remove_user_session
-
-from pecan_admin.controllers.users import UsersController
 
 
 class RootController(object):
@@ -17,7 +15,7 @@ class RootController(object):
     @index.when(method='POST', template='index.html')
     def _post_login(self, *args, **kwargs):
         user = models.User.filter_by(username=kwargs['username']).first()
-        if user.validate_password(kw.get('password')):
+        if user.validate_password(kwargs.get('password')):
             save_user_session(user)
             redirect('/')
         return dict(errors='wrong password or username')
