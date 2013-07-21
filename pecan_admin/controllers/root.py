@@ -1,6 +1,6 @@
 from pecan import expose, request, redirect, conf
 from pecan_admin import admin, models
-from pecan_admin.controllers.models import ModelController
+from pecan_admin.controllers.models import ModelsController
 from pecan_admin.lib.auth import save_user_session, remove_user_session
 
 
@@ -52,4 +52,4 @@ class RootController(object):
         # configured to serve as part of the admin
         for _, group in admin_config().items():
             if admin_model in group.keys():
-                return ModelController(group[admin_model]), remainder
+                return ModelsController(group[admin_model]), remainder
