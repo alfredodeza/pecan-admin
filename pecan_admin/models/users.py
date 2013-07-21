@@ -18,9 +18,8 @@ class User(Base):
     email = Column(String(64))
     signup_date = Column(DateTime)
 
-    def __init__(self, username, password, email):
+    def __init__(self, username, password):
         self.username = username
-        self.email = email
         self.signup_date = datetime.utcnow()
         self._set_password(password)
 
