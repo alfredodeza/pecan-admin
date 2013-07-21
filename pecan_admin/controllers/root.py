@@ -3,6 +3,14 @@ from pecan_admin import models
 from pecan_admin.lib.auth import save_user_session, remove_user_session
 
 
+def introspect_admin():
+    return {
+        'Admin Auth': [
+            models.users.User.__name__,
+            ],
+    }
+
+
 class RootController(object):
 
     @expose(generic=True, template='index.html')
@@ -10,7 +18,7 @@ class RootController(object):
         user = request.context.get('user')
         if not user:
             redirect('/login', internal=True)
-        return dict(errors='')
+        return dict(errors='', models=introspect_admin())
 
     @index.when(method='POST', template='login.html')
     def _post_login(self, *args, **kwargs):
