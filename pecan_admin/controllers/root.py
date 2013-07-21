@@ -12,12 +12,13 @@ class RootController(object):
             redirect('/login', internal=True)
         return dict(errors='')
 
-    @index.when(method='POST', template='index.html')
+    @index.when(method='POST', template='login.html')
     def _post_login(self, *args, **kwargs):
         user = models.User.filter_by(username=kwargs['username']).first()
-        if user.validate_password(kwargs.get('password')):
-            save_user_session(user)
-            redirect('/')
+        if user:
+            if user.validate_password(kwargs.get('password')):
+                save_user_session(user)
+                redirect('/')
         return dict(errors='wrong password or username', form_data=kwargs)
 
     @expose(template='login.html')
