@@ -6,7 +6,7 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container" style="width: auto;">
-        <a class="brand" href="#">Project name</a>
+        <a class="brand" href="/">Project name</a>
           <ul class="nav pull-right">
             <li><a href="/logout">logout</a></li>
           </ul>
@@ -27,10 +27,10 @@
           </tr>
         </thead>
         <tbody>
-        % for model in models[model_group]:
+        % for model_name in models[model_group].keys():
           <tr>
             <td>
-              <a  href="/${model}/">${model}</a>
+              <a  href="/${model_name}/">${model_name}</a>
               <a class="btn btn-primary btn-small pull-right" href="#">New</a>
             </td>
           </tr>
