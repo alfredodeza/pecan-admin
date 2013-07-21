@@ -19,33 +19,25 @@
       <h1>Administration</h1>
     </div>
     
-    <table class="table table-bordered table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Model Group</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <a  href="#">Model Name</a>
-            <a class="btn btn-primary btn-small pull-right" href="#">New</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a  href="#">Model Name</a>
-            <a class="btn btn-primary btn-small pull-right" href="#">New</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a  href="#">Model Name</a>
-            <a class="btn btn-primary btn-small pull-right" href="#">New</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    % for model_group in models.keys():
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>${model_group}</th>
+          </tr>
+        </thead>
+        <tbody>
+        % for model in models[model_group]:
+          <tr>
+            <td>
+              <a  href="/${model}/">${model}</a>
+              <a class="btn btn-primary btn-small pull-right" href="#">New</a>
+            </td>
+          </tr>
+        % endfor
+        </tbody>
+      </table>
+    % endfor
   </section>
 </div>
 
