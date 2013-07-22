@@ -1,5 +1,6 @@
 from pecan import expose
 
+
 class ModelController(object):
 
     def __init__(self, admin_model, model):
