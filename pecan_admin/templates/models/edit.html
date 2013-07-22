@@ -6,7 +6,7 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="container" style="width: auto;">
-        <a class="brand" href="#">Project name</a>
+        <a class="brand" href="/">Project name</a>
           <ul class="nav pull-right">
             <li><a href="/logout">logout</a></li>
           </ul>
@@ -16,34 +16,31 @@
 
   <section id="tables">
     <div class="page-header">
-      <h1>Administration</h1>
+      <h1>
+        ${name}
+        <button type="reset" class="btn btn-danger pull-right">Delete</button>
+      </h1>
     </div>
-    
-      <table class="table table-bordered table-striped table-hover">
-        <thead>
-          <tr>
-            <th>${name}</th>
-          </tr>
-          <tr>
-            <th>id</th>
-          % for field in fields:
-            <th>${field}</th>
-          % endfor
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <a  href="/${name}/${model.id}">${model.id}</a>
-            </td>
+    <div class="row">
+      <div class="span12">
+        <form class="form-horizontal well" action="" method="post">
+          <fieldset>
             % for f in fields:
-              <td>
-                ${getattr(model, f)}
-              </td>
+              <div class="control-group">
+                <label class="control-label">${f}</label>
+                <div class="controls">
+                  <span class="input-xlarge uneditable-input">${getattr(model, f)}</span>
+                </div>
+              </div>
             % endfor
-          </tr>
-        </tbody>
-      </table>
+              <div class="form-actions">
+                <button type="reset" class="btn">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   </section>
 </div>
 
