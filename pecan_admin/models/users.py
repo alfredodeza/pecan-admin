@@ -2,7 +2,7 @@ import os
 from hashlib import sha1
 from datetime import datetime
 from sqlalchemy import Column, Integer, DateTime, String, Unicode
-from sqlalchemy.orm import synonym, relationship
+from sqlalchemy.orm import synonym
 from sqlalchemy.orm.exc import DetachedInstanceError
 from pecan_admin.models import Base
 
