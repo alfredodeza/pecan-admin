@@ -38,12 +38,12 @@ class AdminCommand(BaseCommand):
             return
         out("LOADING ENVIRONMENT")
         self.load_app()
-        models.start()
+        self.model_start()
         password = self.make_pass()
         new_admin_user = models.AdminUser(
             username=_args.username,
             password=password)
-        models.commit()
+        self.model_commit()
         out("generated password ==> %s" % password)
 
 
