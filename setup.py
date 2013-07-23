@@ -17,8 +17,4 @@ setup(
     zip_safe = False,
     include_package_data = True,
     packages = find_packages(exclude=['ez_setup']),
-    entry_points="""
-        [pecan.command]
-        admin=pecan_admin.commands.admin:AdminCommand
-        """
 )
