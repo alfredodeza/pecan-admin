@@ -5,4 +5,4 @@ class AdminUser(object):  # consider having a helper to inherit?
 
     name = 'users'
     fields = ('username',)
-    model = models.users.User
+    model = models.users.AdminUser

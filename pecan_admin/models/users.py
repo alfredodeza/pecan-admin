@@ -7,9 +7,9 @@ from sqlalchemy.orm.exc import DetachedInstanceError
 from pecan_admin.models import Base
 
 
-class User(Base):
+class AdminUser(Base):
 
-    __tablename__ = 'users'
+    __tablename__ = 'admin_users'
     id = Column(Integer, primary_key=True)
     first_name = Column(String(64))
     last_name = Column(String(64))
@@ -25,9 +25,9 @@ class User(Base):
 
     def __repr__(self):
         try:
-            return '<User %r>' % self.username
+            return '<AdminUser %r>' % self.username
         except DetachedInstanceError:
-            return '<User detached>'
+            return '<AdminUser detached>'
 
     def _set_password(self, password):
         """Hash password on the fly."""

@@ -1,4 +1,4 @@
-from pecan import expose, request, redirect, conf
+from pecan import expose, request, conf, redirect
 from pecan_admin import admin, models
 from pecan_admin.controllers.models import ModelsController
 from pecan_admin.lib.auth import save_user_session, remove_user_session
@@ -8,6 +8,7 @@ def base_admin_config():
     # XXX this needs to obviously be configurable
     # faking it for now
     return {'users': admin.users.AdminUser}
+
 
 def admin_config():
     """

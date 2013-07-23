@@ -93,4 +93,4 @@ def clear():
     Session.remove()
 
 
-from users import User
+from users import AdminUser
